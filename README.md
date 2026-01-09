@@ -25,6 +25,8 @@ Fully serverless, globally distributed infrastructure:
 - **Amazon CloudFront** - Global CDN with 200+ edge locations
 - **AWS Certificate Manager (ACM)** - Free SSL/TLS certificate
 - **Amazon Route 53** - DNS management and routing
+- **AWS Lambda** - Serverless visitor counter function
+- **Amazon DynamoDB** - NoSQL database for visitor count storage
 - **IAM** - Security and access control
 
 ### Infrastructure Features
@@ -108,6 +110,7 @@ indranilbiswas_cv_ai_terraform
 - 🤖 **AI-Generated** - Modern design by Claude AI
 - 🚀 **Auto-Deploy** - GitHub Actions CI/CD
 - ☁️ **Serverless** - 99.99% uptime on AWS
+- 👁️ **Visitor Counter** - Real-time page visit tracking via Lambda + DynamoDB
 
 ## 💡 Technical Highlights
 
@@ -170,6 +173,8 @@ indranilbiswas_cv_ai_terraform
 | **Storage** | Amazon S3 |
 | **DNS** | Amazon Route 53 |
 | **SSL/TLS** | AWS Certificate Manager |
+| **Serverless Functions** | AWS Lambda (Python 3.11) |
+| **Database** | Amazon DynamoDB (NoSQL) |
 | **IaC** | Terraform |
 | **CI/CD** | GitHub Actions |
 | **Version Control** | Git & GitHub |

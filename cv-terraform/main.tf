@@ -219,7 +219,7 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
 
     # Content Security Policy (must be in security_headers_config, not custom_headers_config)
     content_security_policy {
-      content_security_policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+      content_security_policy = "default-src 'self'; connect-src 'self' https://*.execute-api.ap-southeast-2.amazonaws.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
       override                = true
     }
   }

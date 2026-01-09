@@ -55,6 +55,7 @@
                     <div class="hero-tag">17 Years of Experience</div>
                     <h1>Indranil Biswas</h1>
                     <p class="subtitle">Networks, Cloud & DevOps Engineer</p>
+                    
                     <p class="description">
                         Delivering enterprise-scale infrastructure solutions across Cisco, Juniper, cloud platforms, and automation. 
                         Proven expertise in designing and migrating large-scale environments, implementing high availability, 
@@ -64,6 +65,16 @@
                         <a href="#experience" class="btn btn-primary">View Experience</a>
                         <a href="#skills" class="btn btn-secondary">Skills & Expertise</a>
                     </div>
+                    <br><br><br><br>
+                    <!-- Visitor Counter -->
+                    <div>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">
+                            <span class="visitor-icon">👁️</span>
+                            <span class="visitor-text">Viewed by </span>
+                            <span id="visitor-count" class="visitor-count">...</span>
+                            <span class="visitor-text"> visitors worldwide.</span>
+                        </p>
+                    </div>                  
                 </div>
             </div>
         </div>
@@ -364,14 +375,61 @@
                 <a href="https://github.com/neils0009" class="social-link" title="GitHub" target="_blank">🐙</a>
             </div>
 
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-                © 2026 Indranil Biswas • Hosted on AWS S3 with CloudFront<br>
-                🤖 This website was generated using AI (Claude by Anthropic)<br>
-                🚀 Automated CI/CD deployment via GitHub Actions<br>
-                Melbourne, Victoria, Australia
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                © 2026 Indranil Biswas • Melbourne, Victoria, Australia<br>
+                Built with AI. Deployed on AWS. Automated with Terraform and GitHub Actions
+            </p>
+
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">
+                <strong>🚀 Tech Stack:</strong><br>
+                Frontend: HTML5, CSS3, JavaScript | Cloud: AWS (S3, CloudFront, Lambda, DynamoDB, Route 53, ACM) | 
+                IaC: Terraform | CI/CD: GitHub Actions | AI: Claude 4 (Anthropic)
+            </p>
+
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                📂 <strong>Source Code:</strong> 
+                <a href="https://github.com/neils0009/indranilbiswas_cv_ai_terraform" 
+                   target="_blank" 
+                   style="color: var(--text-secondary); text-decoration: underline;">
+                    View on GitHub
+                </a>
             </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/main.js"></script>
     
+    <!-- Visitor Counter Script -->
+    <script>
+        // Fetch and display visitor count
+        async function updateVisitorCount() {
+            const countElement = document.getElementById('visitor-count');
+            
+            try {
+                // Replace this URL with your Lambda Function URL after deployment
+                const apiUrl = 'https://kd11tfr21g.execute-api.ap-southeast-2.amazonaws.com//count';
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    countElement.textContent = data.count.toLocaleString();
+                } else {
+                    countElement.textContent = 'N/A';
+                    console.error('Failed to fetch visitor count');
+                }
+            } catch (error) {
+                countElement.textContent = 'N/A';
+                console.error('Error fetching visitor count:', error);
+            }
+        }
+        
+        // Update count when page loads
+        window.addEventListener('DOMContentLoaded', updateVisitorCount);
+    </script>

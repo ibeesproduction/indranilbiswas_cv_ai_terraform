@@ -776,3 +776,78 @@ nav {
         margin-bottom: 2rem;
     }
 }
+
+/* ============================================
+   Visitor Counter Styles
+   Add these to the end of your styles.css file
+   ============================================ */
+
+.visitor-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    animation: blink 2s ease-in-out infinite;
+}
+
+.visitor-counter:hover {
+    background: rgba(0, 212, 255, 0.15);
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.visitor-icon {
+    font-size: 1.2rem;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.visitor-text {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.visitor-count {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Footer link styling */
+.footer a {
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: white !important;
+    text-shadow: 0 0 10px var(--primary);
+}
+
+/* Mobile adjustments for visitor counter */
+@media (max-width: 768px) {
+    .visitor-counter {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .visitor-count {
+        font-size: 1rem;
+    }
+}
+
