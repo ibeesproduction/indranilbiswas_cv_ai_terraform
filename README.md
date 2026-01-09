@@ -83,13 +83,20 @@ Live website updated ✅
 ## 📊 Project Structure
 
 ```
-cv-website/
-├── index.html              # Main HTML (AI-generated)
-├── css/styles.css         # Modular CSS
-├── js/main.js             # Interactive features
-├── images/                # Profile photos
-├── .github/workflows/     # CI/CD automation
-└── terraform/             # AWS infrastructure
+indranilbiswas_cv_ai_terraform
+├── cv-terraform
+  ├── modular-cv-website/
+    ├── index.html             # Main HTML (AI-generated)
+    ├── css/styles.css         # Modular CSS
+    ├── js/main.js             # Interactive features
+    ├── images/                # Profile photos
+  ├── .github/workflows/     # CI/CD automation
+  ├── main.tf                  # AWS infrastructure
+  ├── versions.tf              # AWS infrastructure
+  ├── variables.tf             # AWS infrastructure
+  ├── output.tf                # AWS infrastructure
+  └── README.md                # Readme file
+└── README.md                  # Readme file
 ```
 
 ## 🎨 Key Features

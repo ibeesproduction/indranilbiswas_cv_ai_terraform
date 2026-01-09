@@ -41,7 +41,7 @@ lambda/*.zip
 
 # Node modules (if using Node.js Lambda)
 node_modules/
-
+cv-website-backup/
 # Python
 __pycache__/
 *.py[cod]
