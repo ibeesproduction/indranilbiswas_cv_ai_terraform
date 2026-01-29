@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
@@ -24,36 +23,12 @@ jobs:
       
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://indranilbiswas/ \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "*.md" \
+          aws s3 sync ./modular-cv-website/ s3://indranilbiswas-ibeesproduction-com-content/ \
             --exclude ".DS_Store" \
-            --exclude "create-logo.sh" \
             --delete \
             --cache-control "public, max-age=3600"
       
-      - name: Set content types for specific files
-        run: |
-          # Set HTML content type
-          aws s3 cp s3://indranilbiswas/index.html s3://indranilbiswas/index.html \
-            --content-type "text/html" \
-            --metadata-directive REPLACE \
-            --cache-control "public, max-age=3600"
-          
-          # Set CSS content type
-          aws s3 cp s3://indranilbiswas/css/styles.css s3://indranilbiswas/css/styles.css \
-            --content-type "text/css" \
-            --metadata-directive REPLACE \
-            --cache-control "public, max-age=86400"
-          
-          # Set JavaScript content type
-          aws s3 cp s3://indranilbiswas/js/main.js s3://indranilbiswas/js/main.js \
-            --content-type "application/javascript" \
-            --metadata-directive REPLACE \
-            --cache-control "public, max-age=86400"
-      
-      - name: Invalidate CloudFront cache (if using CloudFront)
+      - name: Invalidate CloudFront cache
         run: |
           if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
             aws cloudfront create-invalidation \
@@ -67,7 +42,6 @@ jobs:
       - name: Deployment summary
         run: |
           echo "✅ Deployment completed successfully!"
-          echo "🌐 Website URL: http://indranilbiswas.s3-website-ap-southeast-2.amazonaws.com"
           if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
             echo "🚀 CloudFront URL: https://indranilbiswas.ibeesproduction.com"
           fi

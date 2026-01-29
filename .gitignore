@@ -38,6 +38,8 @@ lambda/*.zip
 *.swo
 *~
 .DS_Store
+*/response.json
+Guides
 
 # Node modules (if using Node.js Lambda)
 node_modules/
