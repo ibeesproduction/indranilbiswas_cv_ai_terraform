@@ -59,7 +59,7 @@ Fully serverless, globally distributed infrastructure:
   4. CloudFront cache invalidated
   5. Website updated globally (~1 minute)
 
-## 🚀 Automated Deployment
+## 🚀 Automated Deployment using CI/CD
 
 The website uses **continuous deployment** via GitHub Actions:
 
