@@ -25,7 +25,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./modular-cv-website/ s3://indranilbiswas-ibeesproduction-com-content/ \
+          aws s3 sync ./cv-terraform/modular-cv-website/ s3://indranilbiswas-ibeesproduction-com-content/ \
             --exclude ".DS_Store" \
             --delete \
             --cache-control "public, max-age=3600"
