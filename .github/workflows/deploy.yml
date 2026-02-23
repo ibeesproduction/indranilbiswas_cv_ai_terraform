@@ -36,7 +36,7 @@ jobs:
           if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
             aws cloudfront create-invalidation \
               --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-              --paths "/*"ß
+              --paths "/*"
             echo "CloudFront cache invalidated"
           else
             echo "No CloudFront distribution ID configured, skipping invalidation"
