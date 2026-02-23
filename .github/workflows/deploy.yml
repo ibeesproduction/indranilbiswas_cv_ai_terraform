@@ -27,6 +27,7 @@ jobs:
         run: |
           aws s3 sync ./cv-terraform/modular-cv-website/ s3://indranilbiswas-ibeesproduction-com-content/ \
             --exclude ".DS_Store" \
+            --exclude "*.backup"
             --delete \
             --cache-control "public, max-age=3600"
 
@@ -35,7 +36,7 @@ jobs:
           if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
             aws cloudfront create-invalidation \
               --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-              --paths "/*"
+              --paths "/*"ß
             echo "CloudFront cache invalidated"
           else
             echo "No CloudFront distribution ID configured, skipping invalidation"
