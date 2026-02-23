@@ -329,6 +329,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Back to Top button
+    (function () {
+    const btn = document.getElementById("backToTop");
+    if (!btn) return;
+
+    const toggleVisibility = () => {
+        // Show after scrolling 400px
+        if (window.scrollY > 400) btn.classList.add("show");
+        else btn.classList.remove("show");
+    };
+
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    })();
+
 });
 
 // ============================================
