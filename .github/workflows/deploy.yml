@@ -27,7 +27,7 @@ jobs:
         run: |
           aws s3 sync ./cv-terraform/modular-cv-website/ s3://indranilbiswas-ibeesproduction-com-content/ \
             --exclude ".DS_Store" \
-            --exclude "*.backup"
+            --exclude "*.backup" \
             --delete \
             --cache-control "public, max-age=3600"
 
